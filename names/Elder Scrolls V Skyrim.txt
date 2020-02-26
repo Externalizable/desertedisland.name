@@ -1,9 +1,9 @@
-Dawnstar,
-Falkreath,
-Markarth,
-Morthal,
-Riften,
-Solitude,
-Whiterun,
-Windhelm,
+Dawnstar
+Falkreath
+Markarth
+Morthal
+Riften
+Solitude
+Whiterun
+Windhelm
 Winterhold
