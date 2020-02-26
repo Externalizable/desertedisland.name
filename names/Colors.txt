@@ -1,0 +1,11 @@
+Aero
+Blue
+Cyan
+Fuchsia
+Green
+Indigo
+Magenta
+Orange
+Red
+Violet
+Yellow

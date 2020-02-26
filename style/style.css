@@ -1,0 +1,317 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
+
+@font-face {
+  font-family: "FinkHeavy";
+  src: url("../font/FinkHeavy.woff") format("woff"), url("../font/FinkHeavy.ttf") format("truetype")
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0)
+  }
+
+  20%, 60% {
+    transform: rotate(-25deg)
+  }
+
+  40%, 80% {
+    transform: rotate(10deg)
+  }
+}
+
+@keyframes glide {
+  from {
+    background-position: 0 0
+  }
+
+  to {
+    background-position: 190px 0
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: scale(0.7) rotateZ(0)
+  }
+
+  to {
+    transform: scale(1) rotateZ(360deg)
+  }
+}
+
+#container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+  height: auto;
+  justify-content: center;
+  justify-items: center;
+  left: 50%;
+  max-width: 40%;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1
+}
+
+#name {
+  font-size: 22px;
+  height: auto;
+  margin: 0 10px 0 0;
+  max-width: 454px;
+  overflow: hidden;
+  white-space: nowrap;
+  width: calc(100% - 58px)
+}
+
+#name span {
+  -webkit-user-select: all;
+  align-items: center;
+  display: flex;
+  user-select: all;
+  vertical-align: middle
+}
+
+#name span::after {
+  background: #a0ddc4;
+  border: 2px solid #66c8a0;
+  border-radius: 5px;
+  content: attr(category);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+  margin: 0 6px;
+  padding: 2px 6px
+}
+
+#redo {
+  -webkit-text-stroke: 4px #a0ddc4;
+  color: #f7fcfa;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 48px;
+  outline: none;
+  position: relative;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2)
+}
+
+#select-all~span {
+  font-weight: 700
+}
+
+#sources {
+  display: inline-block;
+  font-size: 18px;
+  margin: 10px 0 0;
+  max-height: 400px;
+  max-width: 512px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%
+}
+
+#sources #title {
+  background: #66c8a0;
+  border-bottom: 4px solid #a0ddc4;
+  box-sizing: border-box;
+  width: 100%
+}
+
+#sources div {
+  padding: 10px 15px
+}
+
+#wrapper {
+  display: inline-block;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%
+}
+
+#wrapper:before {
+  animation: glide 20s linear infinite;
+  background: url(../img/background_grass.png) 0 0 repeat;
+  background-position: 0 0;
+  background-size: 190px 191px;
+  content: "";
+  height: 200%;
+  left: -50%;
+  position: absolute;
+  top: -50%;
+  transform: rotate(10deg) scale(0.8);
+  width: 200%;
+  z-index: -1
+}
+
+.box {
+  background: #f7fcfa;
+  border: 4px solid #a0ddc4;
+  border-radius: 25px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: FinkHeavy !important;
+  padding: 10px 15px;
+  position: relative
+}
+
+.check {
+  color: silver;
+  font-size: 20px;
+  position: relative;
+  transition: all 50ms ease-in-out
+}
+
+.check::before {
+  content: "\f0c8"
+}
+
+.spin {
+  animation: spin .4s ease-out
+}
+
+a {
+  color: inherit
+}
+
+a#github {
+  z-index: 1000
+}
+
+body {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  background: #88caa2;
+  color: #222;
+  font-family: 'Open Sans', sans-serif;
+  height: 100%;
+  margin: 0;
+  user-select: none;
+  width: 100%
+}
+
+footer {
+  bottom: 0;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  width: calc(100% - 20px);
+  z-index: 500
+}
+
+footer a {
+  text-decoration: none
+}
+
+footer span {
+  font-size: 14px;
+  margin: 0 7px
+}
+
+h2 {
+  margin: 0;
+  text-align: center
+}
+
+html {
+  height: 100%;
+  width: 100%
+}
+
+img {
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-user-drag: none;
+  height: 225px;
+  padding: 0 50%
+}
+
+input {
+  display: none
+}
+
+label {
+  align-items: center;
+  background: #FFF;
+  border: 2px solid silver;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  margin: 1px;
+  padding: 1px 3px;
+  position: relative
+}
+
+label input:checked~.check {
+  color: green
+}
+
+label input:checked~.check::before {
+  content: "\f14a" !important
+}
+
+label span {
+  margin: 0 5px
+}
+
+label:hover input~.check {
+  color: #66c8a0
+}
+
+svg#github {
+  border: 0;
+  color: #fff;
+  fill: #000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000
+}
+
+svg#github:hover .octo-arm {
+  animation: wave 560ms ease-in-out
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #wrapper:before, svg#github:hover .octo-arm {
+    animation: none
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  #container {
+    height: calc(100% - 42px);
+    min-width: 90%;
+    top: 0;
+    transform: translate(-50%, 0)
+  }
+
+  #sources #content {
+    font-size: 16px
+  }
+
+  #wrapper {
+    height: auto
+  }
+
+  a#github {
+    visibility: hidden
+  }
+
+  footer {
+    display: inline-block;
+    float: left;
+    position: relative
+  }
+
+  img {
+    height: 150px
+  }
+}
+
+@media only screen and (min-width: 769px) {}
