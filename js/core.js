@@ -83,7 +83,7 @@ $(document).ready(function() {
     }, 100);
   });
 
-  $("#select-all").click(function(event) {
+  $("input#select-all").click(function(event) {
     var checked = this.checked;
     $(":checkbox").each(function() {
       this.checked = checked;
@@ -91,12 +91,15 @@ $(document).ready(function() {
   });
 
   setTimeout(function() {
+    let selectAll = $("input#select-all")[0];
     $(":checkbox").change(function(event) {
-      if (!this.checked) {
-        $("#select-all").each(function() {
-          this.checked = false;
-        });
-      }
+      var allChecked = true;
+      $(":checkbox").each(function() {
+        if (allChecked && !this.checked && this != selectAll) {
+          allChecked = false;
+        }
+      });
+      selectAll.checked = allChecked;
     });
 
     $("#redo").click();
