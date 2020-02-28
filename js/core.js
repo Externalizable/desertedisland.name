@@ -1,17 +1,20 @@
 var dictionary = {};
 
 var files = [
+  "Captain Toad Treasure Tracker",
   "Colors",
   "Elder Scrolls V Skyrim",
   "Flowers",
   "Fruits & Vegetables",
   "Gems & Minerals",
+  "Planets & Stars",
   "Pokemon DPPT",
   "Pokemon RBY",
   "Pokemon RSE",
   "Pokemon SwSh",
-  "Planets & Stars",
+  "Splatoon",
   "Super Mario Galaxy",
+  "Super Mario Kart 8",
   "Super Mario Odyssey",
   "Super Mario Sunshine",
   "Trees",
