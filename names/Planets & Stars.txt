@@ -1,12 +1,12 @@
-Saturn
+Earth
+Europa
 Jupiter
 Mars
-Earth
-Venus
-Pluto
 Mercury
 Moon
 Neptune
+Pluto
+Saturn
 Sun
-Europa
 Titan
+Venus

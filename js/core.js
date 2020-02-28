@@ -16,7 +16,6 @@ var files = [
   "Super Mario Sunshine",
   "Trees",
   "Undertale",
-  "US Towns",
   "Zelda BOTW",
   "Zelda Majoras Mask",
   "Zelda OOT",
