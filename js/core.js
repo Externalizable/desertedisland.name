@@ -46,41 +46,52 @@ function convertToId(name) {
 }
 
 $(document).ready(function() {
-  files.forEach(function(file, i) {
+  let selectAll = $("input#select-all")[0];
+
+  for (const file of files) {
     $.get("./names/" + file.replace(/\s/g, "%20").replace("/\&/g", "%26") + ".txt", function(data) {
       dictionary[file] = data.split('\n');
-      $("#content").append("<label><input type=\"checkbox\" id=\"" + convertToId(file) + "\" checked><i class=\"check fas\"></i><span>" + file + "</span></label>");
+      var id = convertToId(file);
+      $("#content").append("<label><input type=\"checkbox\" id=\"" + id + "\" class=\"checkbox\" checked><i class=\"check fas\"></i><span>" + file + "</span></label>");
+      $("#" + id).change(function(event) {
+        var allChecked = true;
+        $(":checkbox").each(function() {
+          if (allChecked && !this.checked && this != selectAll) {
+            allChecked = false;
+          }
+        });
+        selectAll.checked = allChecked;
+      });
     });
-  });
+  }
 
   $("#redo").on("click", function() {
     var button = $(this);
     button.removeClass("spin");
     setTimeout(function() {
       button.addClass("spin");
-
-      var element = $("#name").find("span:first");
-
-      var names = getNames();
-      var keys = Object.keys(names);
-      var values = Object.values(names);
-
-      var currentName = element.text();
-      var name;
-      var category;
-      if (keys.length > 0) {
-        while (name == undefined || name == currentName) {
-          var index = Math.floor(Math.random() * keys.length);
-          name = keys[index] + " Island";
-          category = values[index];
-        }
-      }
-      if (name == undefined) name = "Isle of Nothingness";
-      if (category == undefined) category = "Never Ending Void";
-
-      element.text(name);
-      element.attr("category", category);
     }, 100);
+
+    var element = $("#name").find("span:first");
+
+    var names = getNames();
+    var keys = Object.keys(names);
+    var values = Object.values(names);
+
+    var currentName = element.text();
+    var name, category;
+    if (keys.length > 0) {
+      while (name == undefined || name == currentName) {
+        var index = Math.floor(Math.random() * keys.length);
+        name = keys[index] + " Island";
+        category = values[index];
+      }
+    }
+    if (name == undefined) name = "Isle of Nothingness";
+    if (category == undefined) category = "Never Ending Void";
+
+    element.text(name);
+    element.attr("category", category);
   });
 
   $("input#select-all").click(function(event) {
@@ -91,17 +102,6 @@ $(document).ready(function() {
   });
 
   setTimeout(function() {
-    let selectAll = $("input#select-all")[0];
-    $(":checkbox").change(function(event) {
-      var allChecked = true;
-      $(":checkbox").each(function() {
-        if (allChecked && !this.checked && this != selectAll) {
-          allChecked = false;
-        }
-      });
-      selectAll.checked = allChecked;
-    });
-
     $("#redo").click();
-  }, 100);
+  }, 250);
 });
