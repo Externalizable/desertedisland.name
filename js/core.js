@@ -30,9 +30,8 @@ function getNames() {
   for (var key in dictionary) {
     var id = convertToId(key);
     if ($("input#" + id).is(":checked")) {
-      for (var entry in dictionary[key]) {
-        var name = dictionary[key][entry];
-        if (!names.hasOwnProperty(name)) {
+      for (var name of dictionary[key]) {
+        if (!names.hasOwnProperty(name) && name.length <= 10) {
           names[name] = key;
         }
       }
