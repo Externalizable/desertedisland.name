@@ -189,6 +189,10 @@
   content: "\f111"
 }
 
+.octo-arm {
+  transform-origin: 130px 106px
+}
+
 .row {
   align-items: center;
   display: flex;
